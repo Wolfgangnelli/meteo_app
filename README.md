@@ -6,4 +6,6 @@
 
 🔴 - Vanilla JS Projects
 
+🔴 - Sass Projects
+
 🔴 - Other concepts
