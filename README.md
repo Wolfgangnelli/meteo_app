@@ -1,8 +1,8 @@
 ## 👨🏻‍💻 Technologies
 
-🔴 - Node Js Projects
-
 🔴 - React js Projects
+
+🔴 - Redux Projects
 
 🔴 - Vanilla JS Projects
 
