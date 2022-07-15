@@ -1,7 +1,15 @@
 import "./_app.scss";
+import { PageWrapper } from "../containers";
+import { Header, Main, Footer } from "../components/organisms";
 
 function App() {
-  return <div>Meteo App</div>;
+  return (
+    <PageWrapper>
+      <Header />
+      <Main className="container h-screen w-full" />
+      <Footer />
+    </PageWrapper>
+  );
 }
 
 export default App;
