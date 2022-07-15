@@ -1,11 +1,13 @@
 ## 👨🏻‍💻 Technologies
 
-🔴 - React js Projects
+💙 - React js Projects
 
-🔴 - Redux Projects
+❤ - Redux Projects
 
-🔴 - Vanilla JS Projects
+💛 - Vanilla JS Projects
 
-🔴 - Sass Projects
+🧡 - Sass Projects
 
-🔴 - Other concepts
+💜 - Bootstrap Projects
+
+💚 - Other concepts
