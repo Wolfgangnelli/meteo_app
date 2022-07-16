@@ -5,8 +5,9 @@ import {
   MainCardImg,
   MediumCard,
   MediumTabs,
+  Localization,
 } from "../../molecules";
-import { SButton } from "../../atoms";
+import { SButton, Search } from "../../atoms";
 import clearDay from "../../../assets/svg/clear-day.svg";
 import cloudy from "../../../assets/svg/cloudy.svg";
 
@@ -66,7 +67,10 @@ const Main = ({ className }) => {
             </Col>
           </Row>
         </Col>
-        <Col lg={4}>Q4</Col>
+        <Col lg={4}>
+          <Search />
+          <Localization title="Localization" label="Add localization" />
+        </Col>
       </Row>
     </main>
   );
