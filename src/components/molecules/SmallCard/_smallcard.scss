@@ -1,0 +1,30 @@
+@import "../../../theme/variables";
+
+.small-card {
+    border-radius: 20px !important;
+    background-image: linear-gradient(90deg, $dark-blue, $medium-blue) !important;
+    color: $white;
+}
+
+.small-card-title-h5 {
+    margin-bottom: 3px;
+    font-size: 1.4rem !important;
+}
+
+.small-card-text {
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 15px;
+}
+
+.small-card-hour {
+    font-size: 0.7rem;
+    font-weight: lighter;
+}
+
+.small-card-temperature {
+    text-align: center;
+    margin: auto;
+    font-size: 3rem;
+    font-weight: bold;
+}
