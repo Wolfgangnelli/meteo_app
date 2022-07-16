@@ -1,8 +1,14 @@
 @import "../../../theme/variables";
 
-.small-card {
+.small-card-blue {
     border-radius: 20px !important;
     background-image: linear-gradient(90deg, $dark-blue, $medium-blue) !important;
+    color: $white;
+}
+
+.small-card-gray {
+    border-radius: 20px !important;
+    background-image: linear-gradient(90deg, $dark-gray, $medium-gray) !important;
     color: $white;
 }
 
@@ -27,4 +33,27 @@
     margin: auto;
     font-size: 3rem;
     font-weight: bold;
+}
+
+.xs-card-blue {
+    border-radius: 20px !important;
+    background-color: $light-blue;
+    color: $white;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-width: 150px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.card-img.xs {
+    width: 90%;
+    height: 90%;
+}
+.xs-card-content {
+    display: flex;
+    justify-content: center;
+}
+.content-temperature {
+    font-size: 2rem;
+    font-weight: 700;
 }

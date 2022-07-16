@@ -1,6 +1,11 @@
 import React from "react";
-import { Row, Col, Image, Card } from "react-bootstrap";
-import { SmallCard } from "../../molecules";
+import { Row, Col } from "react-bootstrap";
+import {
+  SmallCard,
+  MainCardImg,
+  MediumCard,
+  MediumTabs,
+} from "../../molecules";
 import { SButton } from "../../atoms";
 import clearDay from "../../../assets/svg/clear-day.svg";
 import cloudy from "../../../assets/svg/cloudy.svg";
@@ -12,17 +17,7 @@ const Main = ({ className }) => {
     <main className={className}>
       <Row>
         <Col lg={8} className="py-3">
-          <Card style={{ borderRadius: 20 + "px" }}>
-            <Card.Img
-              src="https://picsum.photos/2000/1100"
-              style={{ borderRadius: 20 + "px" }}
-            />
-            <Card.ImgOverlay style={{ color: "white" }}>
-              <Card.Title>Turin</Card.Title>
-              <Card.Text>Friday 18, semptember</Card.Text>
-              <Card.Text>Sunny</Card.Text>
-            </Card.ImgOverlay>
-          </Card>
+          <MainCardImg className="main-card-img relative" />
         </Col>
         <Col
           lg={4}
@@ -46,7 +41,7 @@ const Main = ({ className }) => {
                 time="2:38 p.m."
                 svg={clearDay}
                 temperature="20°"
-                className="small-card"
+                className="small-card-blue"
               />
               <SmallCard
                 label="Rome"
@@ -54,15 +49,24 @@ const Main = ({ className }) => {
                 time="3:38 p.m."
                 svg={cloudy}
                 temperature="15°"
-                className="small-card mt-3"
+                className="small-card-gray mt-3"
               />
             </Col>
           </Row>
         </Col>
       </Row>
       <Row>
-        <Col md={8}>Q3</Col>
-        <Col md={4}>Q4</Col>
+        <Col lg={8}>
+          <Row>
+            <Col lg={4}>
+              <MediumCard />
+            </Col>
+            <Col lg={8}>
+              <MediumTabs />
+            </Col>
+          </Row>
+        </Col>
+        <Col lg={4}>Q4</Col>
       </Row>
     </main>
   );

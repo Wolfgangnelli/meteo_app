@@ -1,3 +1,15 @@
 @import "../theme/variables";
-@import "~bootstrap/scss/bootstrap";
-@import "../theme/bootswatch";
+/* @import "~bootstrap/scss/bootstrap";
+@import "../theme/bootswatch"; */
+
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    border: none !important;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: transparent !important;
+}
