@@ -1,3 +1,4 @@
 import SButton from "./SButton";
+import Moves from "./Moves";
 
-export { SButton };
+export { SButton, Moves };

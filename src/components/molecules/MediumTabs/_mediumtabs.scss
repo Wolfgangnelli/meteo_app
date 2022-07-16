@@ -1,0 +1,37 @@
+@import "../../../theme/variables";
+
+.nav-tabs {
+    border: none;
+    border-radius: 20px;
+}
+.tab-content {
+    background: linear-gradient(rgba($blue, 1), rgba($light-blue, 0.9)) !important;;
+    padding: 1rem;
+    border-radius: 0 20px 20px 20px;
+    color: $white;
+    height: 311px;
+}
+
+#tab-forecast-tabpane-week {
+    height: 100%;
+}
+
+#tab-forecast-tab-month.active {
+    background: rgba($blue, 1);
+    color: $white;
+    font-weight: 700;
+}
+#tab-forecast-tab-week.active {
+    background: rgba($blue, 1);
+    color: $white;
+    font-weight: 700;
+}
+button {
+    border: none !important;
+    border-radius: 20px 20px 0 0 !important;
+}
+
+li.nav-item {
+    background-color: #f1f1f1;
+    border-radius: 20px 20px 0 0;
+}

@@ -1,0 +1,25 @@
+@import "../../../theme/variables";
+
+.main-card-img {
+    color: $dark-blue;
+}
+
+.card-overlay {
+   padding-left: 5rem;
+   padding-top: 3rem;
+
+   p {
+    margin-bottom: 0.5rem;
+    }
+   .card-text-semibold {
+    font-weight: 600;
+    }
+}
+
+.card-title {
+    margin-bottom: 0.5rem !important;
+}
+
+.h5 {
+    font-size: 1.5rem;
+}

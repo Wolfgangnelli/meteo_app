@@ -6,7 +6,7 @@ function App() {
   return (
     <PageWrapper>
       <Header />
-      <Main className="container h-screen w-full" />
+      <Main className="container-xxl h-screen w-full" />
       <Footer />
     </PageWrapper>
   );
