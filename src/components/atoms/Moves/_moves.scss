@@ -14,3 +14,12 @@
         opacity: 1 !important;
     }
   }
+  .moves-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 16px;
+    position: absolute;
+    height: auto;
+    width: 100%;
+  }
