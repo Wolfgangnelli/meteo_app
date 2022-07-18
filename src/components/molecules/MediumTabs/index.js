@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Tabs, Tab, Row, Col } from "react-bootstrap";
+import { Tabs, Tab, Row, Col, Nav } from "react-bootstrap";
 import { SmallCard } from "../index";
 import { Moves } from "../../atoms";
 import "./_mediumtabs.scss";
@@ -11,51 +11,52 @@ function MediumTabs() {
   const [key, setKey] = useState("week");
   return (
     <Tabs id="tab-forecast" activeKey={key} onSelect={(k) => setKey(k)}>
-      <Tab eventKey="week" title="This week">
-        <Row
-          className="d-flex justify-content-evenly mt-2"
-          style={{ height: 90 + "%" }}
-        >
-          <Col md={3}>
-            <SmallCard
-              className="xs-card-blue"
-              label="Saturday"
-              temperature="18°"
-              svg={svg1}
-              size="xs"
-              direction="v"
-            />
-          </Col>
-          <Col md="auto"></Col>
-          <Col md={3}>
-            <SmallCard
-              className="xs-card-blue"
-              label="Sunday"
-              temperature="21°"
-              svg={svg2}
-              size="xs"
-              direction="v"
-            />
-          </Col>
-          <Col md="auto"></Col>
-          <Col md={3}>
-            <SmallCard
-              className="xs-card-blue"
-              label="Monday"
-              temperature="20°"
-              svg={svg3}
-              size="xs"
-              direction="v"
-            />
-          </Col>
-        </Row>
+      <Tab
+        eventKey="week"
+        title="This week"
+        className={key !== "week" ? "display-none" : "tab-week"}
+      >
+        <div className="tab-card-container">
+          <SmallCard
+            className="xs-card-blue"
+            label="Saturday"
+            temperature="18°"
+            svg={svg1}
+            size="xs"
+            direction="v"
+          />
+
+          <SmallCard
+            className="xs-card-blue"
+            label="Sunday"
+            temperature="21°"
+            svg={svg2}
+            size="xs"
+            direction="v"
+          />
+
+          <SmallCard
+            className="xs-card-blue"
+            label="Monday"
+            temperature="20°"
+            svg={svg3}
+            size="xs"
+            direction="v"
+          />
+        </div>
         <Moves />
       </Tab>
-      <Tab eventKey="month" title="This month">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
-        accusamus nesciunt explicabo totam ipsum adipisci perferendis sunt a
-        officiis quod tempora modi, sed sapiente ea odio, excepturi veritatis
-        temporibus? Aut.
+      <Tab
+        eventKey="month"
+        title="This month"
+        className={key !== "month" ? "display-none" : "tab-week"}
+      >
+        <div className="tab-card-container-month">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
+          accusamus nesciunt explicabo totam ipsum adipisci perferendis sunt a
+          officiis quod tempora modi, sed sapiente ea odio, excepturi veritatis
+          temporibus? Aut.
+        </div>
         <Moves />
       </Tab>
     </Tabs>

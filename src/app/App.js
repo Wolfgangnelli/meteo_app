@@ -4,10 +4,10 @@ import { Header, Main, Footer } from "../components/organisms";
 
 function App() {
   return (
-    <PageWrapper>
-      <Header />
-      <Main className="container-xxl h-screen w-full" />
-      <Footer />
+    <PageWrapper className="px-0">
+      <Header className={"visually-hidden"} />
+      <Main className="container-xxl h-screen w-full bg-main" />
+      <Footer className={"visually-hidden"} />
     </PageWrapper>
   );
 }

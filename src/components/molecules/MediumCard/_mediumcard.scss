@@ -2,23 +2,49 @@
 
 .medium-card {
     background: linear-gradient(rgba($blue, 1), rgba($light-blue, 0.9)) !important;
-    height: 350px;
+    height: 320px;
     overflow: hidden;
     border-radius: 20px;
+}
+
+.thermometer-label-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
 .thermometer-label {
     margin-bottom: 0 !important;
     font-weight: 700;
     color: $white;
-    margin-top: 16%;
+    margin-top: 6%;
     text-align: center;
     padding-right: 5px;
+    height: 100%;
+
+    @media screen and (max-width: 992px) {
+      margin-top: 4% !important;
+      padding: 4px 0;
+    }
 }
 
 .card-section {
     height: 100%;
     margin: 0 !important;
+    display: flex;
+
+    @media screen and (max-width: 992px) {
+      margin: 0 auto !important;
+      width: 80%;
+    }
+
+    .col-one {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
 }
 
 .thermometer {
@@ -68,4 +94,24 @@
         left: -6px;
         opacity: 0.5;
       }
+  }
+
+  .thermometer-container {
+    display: flex;
+    justify-content: center;
+
+    @media screen and (max-width: 992px) {
+      margin-top: 0 !important;
+    }
+  }
+
+  .thermometer-hours {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    @media screen and (max-width: 992px) {
+      margin-top: 0 !important;
+    }
   }

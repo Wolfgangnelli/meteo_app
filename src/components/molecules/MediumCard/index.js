@@ -5,11 +5,15 @@ import "./_mediumcard.scss";
 function MediumCard() {
   return (
     <Card className="medium-card">
-      <p className="thermometer-label">Now</p>
-      <Row className="card-section d-flex">
+      <Row>
+        <Col className="thermometer-label-col">
+          <p className="thermometer-label">Now</p>
+        </Col>
+      </Row>
+      <Row className="card-section mx-auto">
         <Col
           xs={5}
-          className="d-flex flex-column justify-content-between align-items-center position-relative"
+          className="col-one position-relative"
           style={{ color: "white" }}
         >
           <span
@@ -60,21 +64,25 @@ function MediumCard() {
           </span>
         </Col>
         <Col
-          xs="auto"
+          xs={2}
           style={{ marginTop: 8 + "%" }}
-          className="position-static"
+          className="thermometer-container"
         >
-          <div className="thermometer">
-            <span className="dot dot-1"></span>
-            <span className="dot dot-2"></span>
-            <span className="dot dot-3"></span>
-            <span className="dot dot-4"></span>
-            <span className="dot dot-5"></span>
-          </div>
+          <Row style={{ height: 100 + "%" }} className="mx-auto">
+            <Col xs="auto">
+              <div className="thermometer">
+                <span className="dot dot-1"></span>
+                <span className="dot dot-2"></span>
+                <span className="dot dot-3"></span>
+                <span className="dot dot-4"></span>
+                <span className="dot dot-5"></span>
+              </div>
+            </Col>
+          </Row>
         </Col>
         <Col
           xs={5}
-          className="d-flex flex-column justify-content-between align-items-center position-relative"
+          className="position-relative thermometer-hours"
           style={{ marginTop: 5 + "%", color: "white" }}
         >
           <span style={{ visibility: "hidden" }}>4 p.m.</span>
