@@ -10,20 +10,18 @@ import {
 import { SButton, Search } from "../../atoms";
 import clearDay from "../../../assets/svg/clear-day.svg";
 import cloudy from "../../../assets/svg/cloudy.svg";
+import "./_main.scss";
 
 const Main = ({ className }) => {
   const iconPlus = <i className="fa-regular fa-square-plus"></i>;
 
   return (
     <main className={className}>
-      <Row>
-        <Col lg={8} className="py-3">
-          <MainCardImg className="main-card-img relative" />
+      <Row className="main-section-1">
+        <Col lg={8}>
+          <MainCardImg className="main-card-img" />
         </Col>
-        <Col
-          lg={4}
-          className="d-flex align-items-start flex-column flex-wrap pb-3 ps-3"
-        >
+        <Col lg={4} className="main-section-1-col-2">
           <Row className="mb-auto d-flex align-self-center my-auto">
             <Col>
               <SButton
@@ -34,8 +32,8 @@ const Main = ({ className }) => {
               />
             </Col>
           </Row>
-          <Row>
-            <Col>
+          <Row className="mx-auto">
+            <Col className="main-section-1-col-2-row-2">
               <SmallCard
                 label="London"
                 textContent="Friday 18, september"
@@ -50,19 +48,22 @@ const Main = ({ className }) => {
                 time="3:38 p.m."
                 svg={cloudy}
                 temperature="15°"
-                className="small-card-gray mt-3"
+                className="small-card-gray"
               />
             </Col>
           </Row>
         </Col>
       </Row>
-      <Row>
+      <Row className="main-section-2">
         <Col lg={8}>
-          <Row>
+          <Row className="main-section-2-row-1">
             <Col lg={4}>
+              <div style={{ height: 39 + "px" }}>
+                <label className="thermometer-label">Today</label>
+              </div>
               <MediumCard />
             </Col>
-            <Col lg={8}>
+            <Col lg={8} className="medium-tabs-col">
               <MediumTabs />
             </Col>
           </Row>

@@ -17,7 +17,7 @@ const SmallCard = ({
       {size === "s" ? (
         direction === "o" ? (
           <Card className={className}>
-            <Row className="p-2">
+            <Row className="p-2 small-card-media-less-xxl">
               <Col>
                 <h5 className="small-card-title-h5">{label}</h5>
                 <p className="small-card-text">{textContent}</p>
