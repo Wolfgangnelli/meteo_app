@@ -2,24 +2,57 @@
 
 .main-card-img {
     color: $dark-blue;
+    height: 518px;
+}
+
+.card-img-less-large {
+    height: 518px;
+}
+
+@media screen and (max-width: 992px) {
+    .main-card-img {
+        height: auto;
+    }
+    .card-img-less-large {
+        height: auto;
+    }
 }
 
 .card-overlay {
-   padding-left: 5rem;
+   padding-left: 7rem;
    padding-top: 3rem;
 
    p {
     margin-bottom: 0.5rem;
-    }
+}
    .card-text-semibold {
-    font-weight: 600;
+       font-weight: 600;
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+    .card-overlay {
+        padding-left: 5rem !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .card-overlay {
+        padding-left: 5rem !important;
+    }
+    .card-text-semibold {
+        font-weight: 600;
+        font-size: 0.8rem;
+    }
+     .card-title {
+        font-size: 1rem !important;
+    }
+    .card-text-normal {
+        font-size: 0.8rem;
     }
 }
 
 .card-title {
-    margin-bottom: 0.5rem !important;
-}
-
-.h5 {
+    margin-bottom: 0.5rem;
     font-size: 1.5rem;
 }
