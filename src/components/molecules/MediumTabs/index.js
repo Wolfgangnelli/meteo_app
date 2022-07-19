@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { Tabs, Tab, Row, Col, Nav } from "react-bootstrap";
+import { Tabs, Tab, Row, Col, Card, Image } from "react-bootstrap";
 import { SmallCard } from "../index";
 import { Moves } from "../../atoms";
 import "./_mediumtabs.scss";
 import svg1 from "../../../assets/svg/dust-wind.svg";
 import svg2 from "../../../assets/svg/extreme-day-rain.svg";
 import svg3 from "../../../assets/svg/fog-day.svg";
+import svg4 from "../../../assets/svg/hurricane.svg";
 
 function MediumTabs() {
   const [key, setKey] = useState("week");
@@ -52,10 +53,38 @@ function MediumTabs() {
         className={key !== "month" ? "display-none" : "tab-week"}
       >
         <div className="tab-card-container-month">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
-          accusamus nesciunt explicabo totam ipsum adipisci perferendis sunt a
-          officiis quod tempora modi, sed sapiente ea odio, excepturi veritatis
-          temporibus? Aut.
+          <Card style={{ height: 100 + "%" }}>
+            <Row style={{ height: 100 + "%" }} className="month-container">
+              <Col
+                sm={5}
+                style={{ height: 100 + "%", padding: 10 + "px" }}
+                className="details-1"
+              >
+                <p style={{ padding: 10 + "px" }}>Fridayyyyy</p>
+                <Image src={svg4} className="image-fluid" />
+              </Col>
+              <Col sm={7} className="details-2">
+                <Row id="temp-details-container">
+                  <Col className="temp-details-1">
+                    <p>10°</p>
+                    <p>Strong wind</p>
+                    <p>The high will be 14°C, the low will be 8°C.</p>
+                  </Col>
+                  <Col className="temp-details-2">
+                    <p>
+                      Humidity: <span>55%</span>
+                    </p>
+                    <p>
+                      UV: <span>3</span>
+                    </p>
+                    <p>
+                      Dew point: <span>3°C</span>
+                    </p>
+                  </Col>
+                </Row>
+              </Col>
+            </Row>
+          </Card>
         </div>
         <Moves />
       </Tab>

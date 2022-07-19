@@ -6,14 +6,14 @@ const Search = () => {
   return (
     <Form>
       <Form.Label>Search</Form.Label>
-      <Form.Group className="position-relative">
+      <Form.Group className="position-relative search-item">
         <Form.Control
           type="text"
           size="lg"
           placeholder="ex: Miami"
         ></Form.Control>
         <Button
-          className="position-absolute top-0"
+          className="position-absolute top-0 bg-btn-search"
           style={{ right: 0 }}
           type="submit"
         >

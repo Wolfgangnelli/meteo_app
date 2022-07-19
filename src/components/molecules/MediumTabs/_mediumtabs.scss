@@ -9,17 +9,24 @@
     padding: 1rem;
     border-radius: 0 20px 20px 20px;
     color: $white;
-    height: 320px;
+    height: 22.5rem; //320px;  //90%
+}
+
+#tab-forecast-tab-month, #tab-forecast-tab-week {
+font-size: 1.7rem;
+padding: 20px !important;
+color: $dark-blue;
+font-weight: 700;
 }
 
 #tab-forecast-tab-month.active {
     background: rgba($blue, 1);
-    color: $white;
+    color: $white !important;
     font-weight: 700;
 }
 #tab-forecast-tab-week.active {
     background: rgba($blue, 1);
-    color: $white;
+    color: $white !important;
     font-weight: 700;
 }
 button {
@@ -28,7 +35,7 @@ button {
 }
 
 li.nav-item {
-    background-color: #f1f1f1;
+    background-color: $white;
     border-radius: 20px 20px 0 0;
 }
 
@@ -60,4 +67,55 @@ li.nav-item {
 }
 .display-none {
     display: none !important;
+}
+
+.temp-details-2 {
+
+    p {
+        margin-bottom: 0.5rem;
+    }
+}
+
+#temp-details-container {
+    display: flex;
+    flex-direction: column;
+}
+.image-fluid {
+    padding: 10px;
+    height: 80%;
+    width: -webkit-fill-available;
+}
+
+.details-2 {
+    padding: 10px;
+}
+
+@media screen and (max-width: 576px) {
+    .month-container {
+        display: flex;
+        height: 100% !important;
+    }
+    .details-1 {
+        display: flex;
+        height: 50% !important;
+    }
+    .details-2 {
+        display: flex;
+        height: 50% !important;
+    }
+    #temp-details-container {
+        width: 100%;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    .temp-details-1 {
+        width: 50%;
+   
+        p {
+            margin: 0px 0px 8px !important;
+        }
+    }
+    .temp-details-2 {
+        width: 50%;
+    }
 }
