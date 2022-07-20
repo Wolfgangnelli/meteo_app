@@ -1,0 +1,24 @@
+@import "../../../theme/variables";
+
+.dot-moves {
+    height: 6px;
+    width: 6px;
+    background-color: $white;
+    opacity: 0.5;
+    border-radius: 50%;
+    display: inline-block;
+
+    &.active {
+        height: 9px !important;
+        width: 9px !important;
+        opacity: 1 !important;
+    }
+  }
+  .moves-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    height: 10%;
+    width: 100%;
+  }

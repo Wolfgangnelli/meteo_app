@@ -4,7 +4,7 @@ import {
   FORECAST_DATA_FAIL,
 } from "../actions/actionTypes";
 
-const initialState = { forecast: {} };
+const initialState = { forecasts: [] };
 
 export const forecastDataReducer = (
   state = initialState,
@@ -19,7 +19,7 @@ export const forecastDataReducer = (
     case FORECAST_DATA_SUCCESS:
       return {
         loading: false,
-        forecast_data: payload,
+        forecasts: [...state.forecasts, payload],
       };
     case FORECAST_DATA_FAIL:
       return {
