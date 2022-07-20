@@ -14,7 +14,7 @@ export const getForecastData =
       });
 
       const { data } = await axios.get(
-        `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_OPEN_WEATHER_KEY}`
+        `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=beaad418867de3cd48edeb847226d39a`
       );
 
       dispatch({
