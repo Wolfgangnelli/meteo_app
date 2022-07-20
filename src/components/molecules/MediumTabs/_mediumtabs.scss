@@ -1,0 +1,160 @@
+@import "../../../theme/variables";
+
+.nav-tabs {
+    border: none;
+    border-radius: 20px;
+}
+
+.tab-content {
+    background: linear-gradient(rgba($blue, 1), rgba($light-blue, 0.9)) !important;;
+    padding: 1rem;
+    border-radius: 0 20px 20px 20px;
+    color: $white;
+    height: 22.5rem; //320px;  //90%
+}
+
+#tab-forecast-tab-month, #tab-forecast-tab-week {
+font-size: 1.7rem;
+padding: 20px !important;
+color: $dark-blue;
+font-weight: 700;
+}
+
+#tab-forecast-tab-month.active {
+    background: rgba($blue, 1);
+    color: $white !important;
+    font-weight: 700;
+}
+#tab-forecast-tab-week.active {
+    background: rgba($blue, 1);
+    color: $white !important;
+    font-weight: 700;
+}
+button {
+    border: none !important;
+    border-radius: 20px 20px 0 0 !important;
+}
+
+li.nav-item {
+    background-color: $white;
+    border-radius: 20px 20px 0 0;
+}
+
+.tab-week {
+    display: flex;
+    flex-direction: column;
+    position: relative !important;
+    height: 100%;
+}
+
+/* .month-container {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+} */
+
+.tab-card-container {
+    display: flex;
+    justify-content: space-around;
+    height: 90%;
+
+    @media screen and (max-width: 1400px) and (min-width: 992px) {
+        flex-direction: column !important;
+        justify-content: space-evenly;
+       }
+
+    @media screen and (max-width: 768px) {
+        flex-direction: column !important;
+        justify-content: space-evenly;
+       }
+}
+
+.tab-card-container-month {
+    height: 90%;
+}
+.display-none {
+    display: none !important;
+}
+
+.temp-details-1 {
+    padding: 10px;
+
+    p {
+        margin-bottom: 0.5rem;
+    }
+
+    p.temperature {
+        font-size: 2rem;
+        font-weight: 700;
+    }
+}
+
+.temp-details-2 {
+    p {
+        margin-bottom: 0.1rem;
+    }
+}
+
+#temp-details-container {
+    display: flex;
+    flex-direction: column;
+}
+.image-fluid {
+    padding: 10px;
+    height: 80%;
+    width: -webkit-fill-available;
+}
+
+.details-1 {
+    p.date-day {
+        padding: 10px;
+        font-size: 1.4rem;
+        font-weight: 700;
+    }
+}
+
+.details-2 {
+    padding: 10px;
+}
+
+@media screen and (max-width: 576px) {
+    .month-container {
+        display: flex;
+        height: 100% !important;
+    }
+    .details-1 {
+        display: flex;
+        height: 50% !important;
+    }
+    .details-2 {
+        display: flex;
+        height: 50% !important;
+    }
+    #temp-details-container {
+        width: 100%;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    .temp-details-1 {
+        width: 50%;
+        font-size: x-small;
+   
+        p {
+            margin: 0px 0px 8px !important;
+        }
+    }
+    .temp-details-2 {
+        width: 50%;
+    }
+    .temp-details-1-xs {
+        display: flex;
+    }
+    .p-details {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .nav-tabs {
+        flex-wrap: nowrap !important;
+    }
+}
