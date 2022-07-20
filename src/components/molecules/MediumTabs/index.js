@@ -53,21 +53,23 @@ function MediumTabs() {
         className={key !== "month" ? "display-none" : "tab-week"}
       >
         <div className="tab-card-container-month">
-          <Card style={{ height: 100 + "%" }}>
+          <Card style={{ height: 100 + "%", borderRadius: 20 + "px" }}>
             <Row style={{ height: 100 + "%" }} className="month-container">
               <Col
                 sm={5}
                 style={{ height: 100 + "%", padding: 10 + "px" }}
                 className="details-1"
               >
-                <p style={{ padding: 10 + "px" }}>Fridayyyyy</p>
+                <p className="date-day">Fri, 25 Set</p>
                 <Image src={svg4} className="image-fluid" />
               </Col>
               <Col sm={7} className="details-2">
                 <Row id="temp-details-container">
                   <Col className="temp-details-1">
-                    <p>10°</p>
-                    <p>Strong wind</p>
+                    <div className="temp-details-1-xs">
+                      <p className="temperature">10°</p>
+                      <p className="p-details">Strong wind</p>
+                    </div>
                     <p>The high will be 14°C, the low will be 8°C.</p>
                   </Col>
                   <Col className="temp-details-2">
