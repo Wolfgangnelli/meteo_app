@@ -18,7 +18,7 @@ function MediumTabs() {
         className={key !== "week" ? "display-none" : "tab-week"}
       >
         <div className="tab-card-container">
-          <SmallCard
+          {/*  <SmallCard
             className="xs-card-blue"
             label="Saturday"
             temperature="18°"
@@ -43,7 +43,7 @@ function MediumTabs() {
             svg={svg3}
             size="xs"
             direction="v"
-          />
+          /> */}
         </div>
         <Moves />
       </Tab>
