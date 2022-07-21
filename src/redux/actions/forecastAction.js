@@ -2,6 +2,8 @@ import {
   FORECAST_DATA_REQUEST,
   FORECAST_DATA_SUCCESS,
   FORECAST_DATA_FAIL,
+  FORECAST_NOT_SELECTED,
+  FORECAST_NOT_SELECTED_UPDATE,
 } from "./actionTypes";
 import axios from "axios";
 
@@ -27,4 +29,22 @@ export const getForecastData =
         payload: error,
       });
     }
+  };
+
+export const getForecastNotSelected =
+  (id = "") =>
+  (dispatch) => {
+    dispatch({
+      type: FORECAST_NOT_SELECTED,
+      payload: id,
+    });
+  };
+
+export const updateForecastNotSelected =
+  (id = "") =>
+  (dispatch) => {
+    dispatch({
+      type: FORECAST_NOT_SELECTED_UPDATE,
+      payload: id,
+    });
   };

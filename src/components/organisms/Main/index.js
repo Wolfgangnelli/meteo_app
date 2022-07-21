@@ -10,7 +10,10 @@ import {
 import { SButton, Search } from "../../atoms";
 import clearDay from "../../../assets/svg/clear-day.svg";
 import cloudy from "../../../assets/svg/cloudy.svg";
-import { getForecastData } from "../../../redux/actions/forecastAction";
+import {
+  updateForecastNotSelected,
+  getForecastData,
+} from "../../../redux/actions/forecastAction";
 import { useDispatch, useSelector } from "react-redux";
 import { ForecastDataContext } from "../../../contexts/forecastscontext";
 import { findCity } from "../../../utils";
@@ -21,11 +24,11 @@ const Main = ({ className }) => {
 
   const dispatch = useDispatch();
   const forecastData = useSelector((state) => state.forecastData);
-  const { forecasts, error, loading } = forecastData;
+  const { forecasts, error, loading, forecastsNotSelected } = forecastData;
   const [data, setData] = useContext(ForecastDataContext);
 
   useEffect(() => {
-    /*    dispatch(getForecastData("45.070312", "7.6868565"));
+    /*     dispatch(getForecastData("45.070312", "7.6868565"));
     dispatch(getForecastData("51.5073219", "-0.1276474"));
     dispatch(getForecastData("41.8947", "12.4839")); */
   }, []);
@@ -37,9 +40,15 @@ const Main = ({ className }) => {
     }
   }, [forecasts]);
 
+  useEffect(() => {
+    if (data && Object.keys(data).length > 0) {
+      dispatch(updateForecastNotSelected(data.city.id));
+    }
+  }, [data]);
+
   return (
     <main className={className}>
-      {Object.keys(data).length && (
+      {data && Object.keys(data).length && (
         <>
           <section>
             <Row className="main-section-1">
@@ -59,22 +68,16 @@ const Main = ({ className }) => {
                 </Row>
                 <Row className="q2">
                   <Col className="main-section-1-col-2-row-2">
-                    <SmallCard
-                      label="London"
-                      textContent="Friday 18, september"
-                      time="2:38 p.m."
-                      svg={clearDay}
-                      temperature="20°"
-                      className="small-card-blue"
-                    />
-                    <SmallCard
-                      label="Rome"
-                      textContent="Friday 18, september"
-                      time="3:38 p.m."
-                      svg={cloudy}
-                      temperature="15°"
-                      className="small-card-gray"
-                    />
+                    {forecastsNotSelected &&
+                      forecastsNotSelected.length > 0 &&
+                      forecastsNotSelected.map((item, idx) => (
+                        <SmallCard
+                          data={item}
+                          className={
+                            idx < 1 ? "small-card-blue" : "small-card-gray"
+                          }
+                        />
+                      ))}
                   </Col>
                 </Row>
               </Col>

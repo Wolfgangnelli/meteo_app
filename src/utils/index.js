@@ -50,3 +50,9 @@ export function findCity(arrayData = [], cityName = "") {
     return arrayData.find((item) => item.city.name === cityName);
   }
 }
+
+export function filterCities(arrayData = [], cityName = "") {
+  if (!!arrayData.length && !!cityName.length) {
+    return arrayData.filter((item) => item.city.name !== cityName);
+  }
+}
