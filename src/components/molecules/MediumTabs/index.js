@@ -1,15 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Tabs, Tab, Row, Col, Card, Image } from "react-bootstrap";
-import { SmallCard } from "../index";
+import { SmallCardTab } from "../SmallCardTab";
+import { getNextDay } from "../../../utils";
 import { Moves } from "../../atoms";
+import { useSelector } from "react-redux";
 import "./_mediumtabs.scss";
-import svg1 from "../../../assets/svg/dust-wind.svg";
-import svg2 from "../../../assets/svg/extreme-day-rain.svg";
-import svg3 from "../../../assets/svg/fog-day.svg";
 import svg4 from "../../../assets/svg/hurricane.svg";
 
 function MediumTabs() {
   const [key, setKey] = useState("week");
+  const { forecasts } = useSelector((state) => state.forecastData);
+  const [day1, setDay1] = useState({});
+  const [day2, setDay2] = useState({});
+  const [day3, setDay3] = useState({});
+
+  useEffect(() => {
+    if (!!forecasts.length) {
+      console.log(forecasts.length);
+      if (!day1.length) {
+        console.log(forecasts);
+        setDay1(getNextDay(forecasts, forecasts[0].list[0].dt_txt));
+      } else if (!!day1.length && !day2.length) {
+        console.log(day1);
+        setDay2(getNextDay(forecasts, day1.day));
+      } else if (!!day2.length && !day3.length) {
+        console.log(day2);
+        setDay3(getNextDay(forecasts, day2.day));
+      }
+    }
+    if (!!day1.length && !!day2.length && !!day3.length) {
+      console.log(day1, day2, day3);
+    }
+  }, [forecasts, day1, day2]);
+
   return (
     <Tabs id="tab-forecast" activeKey={key} onSelect={(k) => setKey(k)}>
       <Tab
@@ -18,31 +41,16 @@ function MediumTabs() {
         className={key !== "week" ? "display-none" : "tab-week"}
       >
         <div className="tab-card-container">
-          {/*  <SmallCard
-            className="xs-card-blue"
-            label="Saturday"
-            temperature="18°"
-            svg={svg1}
-            size="xs"
-            direction="v"
+          {/*  <SmallCardTab
+            data={day1}
           />
 
-          <SmallCard
-            className="xs-card-blue"
-            label="Sunday"
-            temperature="21°"
-            svg={svg2}
-            size="xs"
-            direction="v"
+          <SmallCardTab
+            data={day2}
           />
 
-          <SmallCard
-            className="xs-card-blue"
-            label="Monday"
-            temperature="20°"
-            svg={svg3}
-            size="xs"
-            direction="v"
+          <SmallCardTab
+            data={day3}
           /> */}
         </div>
         <Moves />

@@ -3,7 +3,7 @@ import { Card } from "react-bootstrap";
 import image from "../../../assets/images/building_background.png";
 import { MiniCardOverlay } from "../index";
 import { ForecastDataContext } from "../../../contexts/forecastscontext";
-import { formattingDate } from "../../../utils";
+import { convertUnixTimestapToDate } from "../../../utils";
 import "./_maincardimg.scss";
 
 function MainCardImg({
@@ -20,7 +20,7 @@ function MainCardImg({
 
   return (
     <>
-      {data.list && (
+      {data && Object.keys(data).length && (
         <Card style={{ borderRadius: 25 + "px" }} className={className}>
           <Card.Img
             src={image}
@@ -29,12 +29,12 @@ function MainCardImg({
           />
           <Card.ImgOverlay>
             <div className="card-overlay">
-              <Card.Title>{data?.city?.name}</Card.Title>
+              <Card.Title>{data.name}</Card.Title>
               <Card.Text className="card-text-semibold">
-                {formattingDate(data.list[0].dt_txt)}
+                {convertUnixTimestapToDate(data.dt)}
               </Card.Text>
               <Card.Text className="card-text-normal">
-                {data.list[0].weather[0].main}
+                {data.weather[0].main}
               </Card.Text>
             </div>
           </Card.ImgOverlay>

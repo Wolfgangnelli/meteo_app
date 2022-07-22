@@ -4,9 +4,12 @@ import {
   FORECAST_DATA_FAIL,
   FORECAST_NOT_SELECTED,
   FORECAST_NOT_SELECTED_UPDATE,
+  CURRENT_WEATHER_REQUEST,
+  CURRENT_WEATHER_SUCCESS,
+  CURRENT_WEATHER_FAIL,
 } from "../actions/actionTypes";
 
-const initialState = { forecasts: [], forecastsNotSelected: [] };
+const initialState = { forecasts: [] };
 
 export const forecastDataReducer = (
   state = initialState,
@@ -40,11 +43,51 @@ export const forecastDataReducer = (
         loading: false,
         error: payload,
       };
+
+    default:
+      return state;
+  }
+};
+
+const initState2 = { currentWeathers: [], forecastsNotSelected: [] };
+
+export const currentWeathersReducer = (
+  state = initState2,
+  { payload, type }
+) => {
+  switch (type) {
+    case CURRENT_WEATHER_REQUEST:
+      return {
+        loading: true,
+        ...state,
+      };
+    case CURRENT_WEATHER_SUCCESS:
+      const existCity = state.currentWeathers.find(
+        (item) => item.id === payload.id
+      );
+      if (existCity) {
+        return {
+          ...state,
+          currentWeathers: state.currentWeathers.map((element) =>
+            element.id === existCity.id ? payload : element
+          ),
+        };
+      } else {
+        return {
+          loading: false,
+          currentWeathers: [...state.currentWeathers, payload],
+        };
+      }
+    case CURRENT_WEATHER_FAIL:
+      return {
+        loading: false,
+        error: payload,
+      };
     case FORECAST_NOT_SELECTED_UPDATE:
       return {
         ...state,
-        forecastsNotSelected: state.forecasts.filter(
-          (item) => item.city.id !== payload
+        forecastsNotSelected: state.currentWeathers.filter(
+          (item) => item.id !== payload
         ),
       };
     default:

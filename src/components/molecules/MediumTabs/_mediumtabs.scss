@@ -10,7 +10,8 @@
     padding: 1rem;
     border-radius: 0 20px 20px 20px;
     color: $white;
-    height: 22.5rem; //320px;  //90%
+    height: 22.5rem;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 10%), 0 6px 20px 0 rgb(0 0 0 / 10%);
 }
 
 #tab-forecast-tab-month, #tab-forecast-tab-week {
@@ -46,11 +47,6 @@ li.nav-item {
     position: relative !important;
     height: 100%;
 }
-
-/* .month-container {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-} */
 
 .tab-card-container {
     display: flex;

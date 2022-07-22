@@ -1,15 +1,15 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Card, Row, Col } from "react-bootstrap";
-import { ForecastDataContext } from "../../../contexts/forecastscontext";
+import { useSelector } from "react-redux";
 import { formattingTime, kelvinToCelsius } from "../../../utils";
 import "./_mediumcard.scss";
 
 function MediumCard() {
-  const [data] = useContext(ForecastDataContext);
+  const { forecasts } = useSelector((state) => state.forecastData);
 
   return (
     <>
-      {data && (
+      {forecasts && Object.keys(forecasts).length && (
         <Card className="medium-card">
           <Row>
             <Col className="thermometer-label-col">
@@ -29,7 +29,7 @@ function MediumCard() {
                   position: "absolute",
                 }}
               >
-                {kelvinToCelsius(data.list[0].main.temp)}°
+                {kelvinToCelsius(forecasts[0].list[0].main.temp)}°
               </span>
               <span
                 style={{
@@ -38,7 +38,7 @@ function MediumCard() {
                   top: 25 + "%",
                 }}
               >
-                {kelvinToCelsius(data.list[1].main.temp)}°
+                {kelvinToCelsius(forecasts[0].list[1].main.temp)}°
               </span>
               <span
                 style={{
@@ -47,7 +47,7 @@ function MediumCard() {
                   top: 48 + "%",
                 }}
               >
-                {kelvinToCelsius(data.list[2].main.temp)}°
+                {kelvinToCelsius(forecasts[0].list[2].main.temp)}°
               </span>
               <span
                 style={{
@@ -56,7 +56,7 @@ function MediumCard() {
                   top: 70 + "%",
                 }}
               >
-                {kelvinToCelsius(data.list[3].main.temp)}°
+                {kelvinToCelsius(forecasts[0].list[3].main.temp)}°
               </span>
               <span
                 style={{
@@ -66,7 +66,7 @@ function MediumCard() {
                   opacity: 0.5,
                 }}
               >
-                {kelvinToCelsius(data.list[4].main.temp)}°
+                {kelvinToCelsius(forecasts[0].list[4].main.temp)}°
               </span>
             </Col>
             <Col
@@ -92,25 +92,33 @@ function MediumCard() {
               style={{ marginTop: 5 + "%", color: "white" }}
             >
               <span style={{ visibility: "hidden" }}>
-                {formattingTime(data.list[0].dt_txt)} p.m.
+                {formattingTime(forecasts[0].list[0].dt_txt)} p.m.
               </span>
               <span style={{ position: "absolute", top: 25 + "%" }}>
-                {formattingTime(data.list[1].dt_txt)}{" "}
-                {formattingTime(data.list[1].dt_txt) >= 12 ? "p.m." : "a.m."}
+                {formattingTime(forecasts[0].list[1].dt_txt)}{" "}
+                {formattingTime(forecasts[0].list[1].dt_txt) >= 12
+                  ? "p.m."
+                  : "a.m."}
               </span>
               <span style={{ position: "absolute", top: 48 + "%" }}>
-                {formattingTime(data.list[2].dt_txt)}{" "}
-                {formattingTime(data.list[2].dt_txt) >= 12 ? "p.m." : "a.m."}
+                {formattingTime(forecasts[0].list[2].dt_txt)}{" "}
+                {formattingTime(forecasts[0].list[2].dt_txt) >= 12
+                  ? "p.m."
+                  : "a.m."}
               </span>
               <span style={{ position: "absolute", top: 70 + "%" }}>
-                {formattingTime(data.list[3].dt_txt)}{" "}
-                {formattingTime(data.list[3].dt_txt) >= 12 ? "p.m." : "a.m."}
+                {formattingTime(forecasts[0].list[3].dt_txt)}{" "}
+                {formattingTime(forecasts[0].list[3].dt_txt) >= 12
+                  ? "p.m."
+                  : "a.m."}
               </span>
               <span
                 style={{ position: "absolute", bottom: -3 + "%", opacity: 0.5 }}
               >
-                {formattingTime(data.list[4].dt_txt)}{" "}
-                {formattingTime(data.list[4].dt_txt) >= 12 ? "p.m." : "a.m."}
+                {formattingTime(forecasts[0].list[4].dt_txt)}{" "}
+                {formattingTime(forecasts[0].list[4].dt_txt) >= 12
+                  ? "p.m."
+                  : "a.m."}
               </span>
             </Col>
           </Row>

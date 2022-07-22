@@ -12,7 +12,8 @@ import clearDay from "../../../assets/svg/clear-day.svg";
 import cloudy from "../../../assets/svg/cloudy.svg";
 import {
   updateForecastNotSelected,
-  getForecastData,
+  getFiveDaysForecastData,
+  getCurrentWeather,
 } from "../../../redux/actions/forecastAction";
 import { useDispatch, useSelector } from "react-redux";
 import { ForecastDataContext } from "../../../contexts/forecastscontext";
@@ -24,31 +25,40 @@ const Main = ({ className }) => {
 
   const dispatch = useDispatch();
   const forecastData = useSelector((state) => state.forecastData);
-  const { forecasts, error, loading, forecastsNotSelected } = forecastData;
+  const currentWeathersData = useSelector((state) => state.currentWeathersData);
+
+  const {
+    currentWeathers,
+    error: errorCurrentWeather,
+    loading: loadingCurrentWeathers,
+    forecastsNotSelected,
+  } = currentWeathersData;
+
   const [data, setData] = useContext(ForecastDataContext);
 
   useEffect(() => {
-    /*     dispatch(getForecastData("45.070312", "7.6868565"));
-    dispatch(getForecastData("51.5073219", "-0.1276474"));
-    dispatch(getForecastData("41.8947", "12.4839")); */
+    dispatch(getFiveDaysForecastData("45.070312", "7.6868565"));
+    dispatch(getCurrentWeather("45.070312", "7.6868565"));
+    dispatch(getCurrentWeather("51.5073219", "-0.1276474"));
+    dispatch(getCurrentWeather("41.8947", "12.4839"));
   }, []);
 
   useEffect(() => {
-    if (loading === false && forecasts) {
-      console.log(forecasts);
-      setData(findCity(forecasts, "Turin"));
+    if (loadingCurrentWeathers === false && currentWeathers) {
+      console.log(currentWeathers);
+      setData(findCity(currentWeathers, "Turin"));
     }
-  }, [forecasts]);
+  }, [currentWeathers]);
 
   useEffect(() => {
     if (data && Object.keys(data).length > 0) {
-      dispatch(updateForecastNotSelected(data.city.id));
+      dispatch(updateForecastNotSelected(data.id));
     }
   }, [data]);
 
   return (
     <main className={className}>
-      {data && Object.keys(data).length && (
+      {currentWeathers && Object.keys(currentWeathers).length && (
         <>
           <section>
             <Row className="main-section-1">
@@ -73,6 +83,7 @@ const Main = ({ className }) => {
                       forecastsNotSelected.map((item, idx) => (
                         <SmallCard
                           data={item}
+                          key={idx}
                           className={
                             idx < 1 ? "small-card-blue" : "small-card-gray"
                           }
