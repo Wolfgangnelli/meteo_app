@@ -17,7 +17,7 @@ const Search = () => {
           style={{ right: 0 }}
           type="submit"
         >
-          <i className="fa-solid fa-magnifying-glass"></i>
+          <i className="fa-solid fa-magnifying-glass fa-lg"></i>
         </Button>
       </Form.Group>
     </Form>
