@@ -79,7 +79,9 @@ export function filterCities(arrayData = [], cityName = "") {
 }
 
 export function getNextDay(list = [], today = "") {
-  let days = list.map((item) => {
+  console.log(list, today);
+  let days = list[0].list.filter((item) => {
+    console.log(item);
     let splitDateTime = item.dt_txt.split(" ");
     let splitToday = today.split(" ");
     let currentItemDay = new Date(splitDateTime[0]);
@@ -92,7 +94,7 @@ export function getNextDay(list = [], today = "") {
       return item;
     }
   });
-
+  console.log(days);
   let temperatures = days.map((el) => el.main.temp);
   let icon = days[4]?.weather[0]?.icon;
 
@@ -102,7 +104,8 @@ export function getNextDay(list = [], today = "") {
     name: DAYNAMES[d.getDay()],
     averageTemp: temperatures.reduce((a, b) => a + b, 0) / temperatures.length,
     icon: icon,
-    day: d,
+    day: days[0].dt_txt,
+    city: list[0].city.name,
   };
 
   return dayObj;
