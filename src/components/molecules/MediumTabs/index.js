@@ -13,6 +13,7 @@ function MediumTabs() {
   const [day2, setDay2] = useState({});
   const [day3, setDay3] = useState({});
   const [last, setLast] = useState(null);
+  const [count, setCount] = useState(1);
 
   const formattingDateForTab = (dt = "") => {
     let d = new Date(dt);
@@ -28,39 +29,21 @@ function MediumTabs() {
   useEffect(() => {
     if (
       !!forecasts.length &&
-      (last === null || last !== forecasts[0].city.id)
+      (!!Object.keys(day3).length === false || last !== forecasts[0].city.id)
     ) {
-      console.log(forecasts.length);
-      if (
-        !!Object.keys(day1).length === false ||
-        last !== forecasts[0].city.id
-      ) {
-        console.log(forecasts);
+      if (count === 1) {
         setDay1(getNextDay(forecasts, forecasts[0].list[0].dt_txt));
-      } else if (
-        !!Object.keys(day1).length &&
-        (!!Object.keys(day2).length === false || last !== forecasts[0].city.id)
-      ) {
-        console.log(day1);
+        setCount(2);
+      } else if (count === 2) {
         setDay2(getNextDay(forecasts, day1.day));
-      } else if (
-        !!Object.keys(day2).length &&
-        (!!Object.keys(day3).length === false || last !== forecasts[0].city.id)
-      ) {
-        console.log(day2);
+        setCount(3);
+      } else if (count === 3) {
         setDay3(getNextDay(forecasts, day2.day));
         setLast(forecasts[0].city.id);
+        setCount(1);
       }
     }
-    if (
-      !!Object.keys(day1).length &&
-      !!Object.keys(day2).length &&
-      !!Object.keys(day3).length
-    ) {
-      console.log(!!day1.length);
-      console.log(day1, day2, day3);
-    }
-  }, [forecasts, day1, day2, day3]);
+  }, [forecasts, day1, day2]);
 
   return (
     <Tabs id="tab-forecast" activeKey={key} onSelect={(k) => setKey(k)}>

@@ -1,26 +1,4 @@
-const MONTHS = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
-const DAYNAMES = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
+import { MONTHS, DAYNAMES } from "./constants";
 
 export function convertUnixTimestapToDate(unixTimestamp = null) {
   if (unixTimestamp !== null) {
@@ -79,9 +57,7 @@ export function filterCities(arrayData = [], cityName = "") {
 }
 
 export function getNextDay(list = [], today = "") {
-  console.log(list, today);
   let days = list[0].list.filter((item) => {
-    console.log(item);
     let splitDateTime = item.dt_txt.split(" ");
     let splitToday = today.split(" ");
     let currentItemDay = new Date(splitDateTime[0]);
@@ -94,7 +70,7 @@ export function getNextDay(list = [], today = "") {
       return item;
     }
   });
-  console.log(days);
+
   let temperatures = days.map((el) => el.main.temp);
   let icon = days[4]?.weather[0]?.icon;
 
