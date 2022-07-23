@@ -6,17 +6,8 @@ import { ForecastDataContext } from "../../../contexts/forecastscontext";
 import { convertUnixTimestapToDate } from "../../../utils";
 import "./_maincardimg.scss";
 
-function MainCardImg({
-  title = "Turin",
-  date = "Friday 18, semptember",
-  forecast = "Sunny",
-  className,
-}) {
+function MainCardImg({ className }) {
   const [data] = useContext(ForecastDataContext);
-
-  useEffect(() => {
-    data && console.log(data);
-  }, [data]);
 
   return (
     <>

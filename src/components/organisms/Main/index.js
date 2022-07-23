@@ -8,8 +8,6 @@ import {
   Localization,
 } from "../../molecules";
 import { SButton, Search } from "../../atoms";
-import clearDay from "../../../assets/svg/clear-day.svg";
-import cloudy from "../../../assets/svg/cloudy.svg";
 import {
   updateForecastNotSelected,
   getFiveDaysForecastData,
@@ -18,13 +16,20 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { ForecastDataContext } from "../../../contexts/forecastscontext";
 import { findCity } from "../../../utils";
+import {
+  TURIN_LAT,
+  TURIN_LON,
+  LONDON_LAT,
+  LONDON_LON,
+  ROME_LAT,
+  ROME_LON,
+} from "../../../utils/constants";
 import "./_main.scss";
 
 const Main = ({ className }) => {
   const iconPlus = <i className="fa-regular fa-square-plus fa-xl"></i>;
 
   const dispatch = useDispatch();
-  const forecastData = useSelector((state) => state.forecastData);
   const currentWeathersData = useSelector((state) => state.currentWeathersData);
 
   const {
@@ -37,23 +42,22 @@ const Main = ({ className }) => {
   const [data, setData] = useContext(ForecastDataContext);
 
   useEffect(() => {
-    /*    dispatch(getFiveDaysForecastData("45.070312", "7.6868565"));
-    dispatch(getCurrentWeather("45.070312", "7.6868565"));
-    dispatch(getCurrentWeather("51.5073219", "-0.1276474"));
-    dispatch(getCurrentWeather("41.8947", "12.4839")); */
+    dispatch(getFiveDaysForecastData(TURIN_LAT, TURIN_LON));
+    dispatch(getCurrentWeather(TURIN_LAT, TURIN_LON));
+    dispatch(getCurrentWeather(LONDON_LAT, LONDON_LON));
+    dispatch(getCurrentWeather(ROME_LAT, ROME_LON));
   }, []);
 
   useEffect(() => {
-    if (loadingCurrentWeathers === false && currentWeathers) {
-      console.log(currentWeathers);
+    loadingCurrentWeathers === false &&
+      currentWeathers &&
       setData(findCity(currentWeathers, "Turin"));
-    }
   }, [currentWeathers]);
 
   useEffect(() => {
-    if (data && Object.keys(data).length > 0) {
+    data &&
+      Object.keys(data).length > 0 &&
       dispatch(updateForecastNotSelected(data.id));
-    }
   }, [data]);
 
   return (
