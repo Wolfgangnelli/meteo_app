@@ -37,10 +37,10 @@ const Main = ({ className }) => {
   const [data, setData] = useContext(ForecastDataContext);
 
   useEffect(() => {
-    dispatch(getFiveDaysForecastData("45.070312", "7.6868565"));
+    /*    dispatch(getFiveDaysForecastData("45.070312", "7.6868565"));
     dispatch(getCurrentWeather("45.070312", "7.6868565"));
     dispatch(getCurrentWeather("51.5073219", "-0.1276474"));
-    dispatch(getCurrentWeather("41.8947", "12.4839"));
+    dispatch(getCurrentWeather("41.8947", "12.4839")); */
   }, []);
 
   useEffect(() => {

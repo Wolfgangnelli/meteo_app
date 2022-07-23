@@ -7,6 +7,9 @@ import {
   CURRENT_WEATHER_REQUEST,
   CURRENT_WEATHER_SUCCESS,
   CURRENT_WEATHER_FAIL,
+  FORECAST_DATA_UPDATE_REQUEST,
+  FORECAST_DATA_UPDATE_SUCCESS,
+  FORECAST_DATA_UPDATE_FAIL,
 } from "../actions/actionTypes";
 
 const initialState = { forecasts: [] };
@@ -22,7 +25,7 @@ export const forecastDataReducer = (
         ...state,
       };
     case FORECAST_DATA_SUCCESS:
-      const existCity = state.forecasts.find(
+      let existCity = state.forecasts.find(
         (item) => item.city.id === payload.city.id
       );
       if (existCity) {
@@ -39,6 +42,22 @@ export const forecastDataReducer = (
         };
       }
     case FORECAST_DATA_FAIL:
+      return {
+        loading: false,
+        error: payload,
+      };
+
+    case FORECAST_DATA_UPDATE_REQUEST:
+      return {
+        loading: true,
+        ...state,
+      };
+    case FORECAST_DATA_UPDATE_SUCCESS:
+      return {
+        ...state,
+        forecasts: [payload],
+      };
+    case FORECAST_DATA_UPDATE_FAIL:
       return {
         loading: false,
         error: payload,

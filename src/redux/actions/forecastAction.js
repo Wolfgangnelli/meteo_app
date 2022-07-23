@@ -7,6 +7,9 @@ import {
   CURRENT_WEATHER_REQUEST,
   CURRENT_WEATHER_SUCCESS,
   CURRENT_WEATHER_FAIL,
+  FORECAST_DATA_UPDATE_REQUEST,
+  FORECAST_DATA_UPDATE_SUCCESS,
+  FORECAST_DATA_UPDATE_FAIL,
 } from "./actionTypes";
 import axios from "axios";
 
@@ -29,6 +32,30 @@ export const getFiveDaysForecastData =
     } catch (error) {
       dispatch({
         type: FORECAST_DATA_FAIL,
+        payload: error,
+      });
+    }
+  };
+
+export const getFiveDaysUpdateForecastData =
+  (lat = "", lon = "") =>
+  async (dispatch) => {
+    try {
+      dispatch({
+        type: FORECAST_DATA_UPDATE_REQUEST,
+      });
+
+      const { data } = await axios.get(
+        `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=beaad418867de3cd48edeb847226d39a`
+      );
+
+      dispatch({
+        type: FORECAST_DATA_UPDATE_SUCCESS,
+        payload: data,
+      });
+    } catch (error) {
+      dispatch({
+        type: FORECAST_DATA_UPDATE_FAIL,
         payload: error,
       });
     }
