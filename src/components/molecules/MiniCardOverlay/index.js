@@ -9,15 +9,15 @@ function MiniCardOverlay() {
 
   return (
     <div className="mini-card-overlay">
-      {data && (
+      {data && Object.keys(data).length && (
         <div
           className="ps-1 card-overlay-container"
           style={{ height: 100 + "%" }}
         >
           <div className="card-overlay-temperature">
-            <p>{kelvinToCelsius(data.list[0].main.temp)}°</p>
+            <p>{kelvinToCelsius(data.main.temp)}°</p>
           </div>
-          <Image src={`/svg/${data.list[0].weather[0].icon}.svg`} fluid />
+          <Image src={`/svg/${data.weather[0].icon}.svg`} fluid />
         </div>
       )}
     </div>

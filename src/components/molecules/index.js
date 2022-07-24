@@ -4,6 +4,7 @@ import MiniCardOverlay from "./MiniCardOverlay";
 import MediumCard from "./MediumCard";
 import MediumTabs from "./MediumTabs";
 import Localization from "./LocalizationCard";
+import SmallCardTab from "./SmallCardTab";
 
 export {
   SmallCard,
@@ -12,4 +13,5 @@ export {
   MediumCard,
   MediumTabs,
   Localization,
+  SmallCardTab,
 };

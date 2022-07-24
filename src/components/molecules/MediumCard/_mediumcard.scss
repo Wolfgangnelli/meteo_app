@@ -14,13 +14,9 @@
   height: 100%;
 }
 
-.thermometer-label {
-/*     font-weight: 700;
-    color: $white;
-    margin-top: 6%;
-    text-align: center;
-    padding-right: 5px;
-    height: 100%; */
+p.thermometer-label {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
 
     @media screen and (max-width: 992px) {
       margin-top: 4% !important;

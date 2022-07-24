@@ -1,51 +1,78 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Card, Row, Col } from "react-bootstrap";
+import {
+  kelvinToCelsius,
+  convertUnixTimestapToDate,
+  convertUnixTimestapToTime,
+  findCity,
+} from "../../../utils";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  updateForecastNotSelected,
+  getFiveDaysUpdateForecastData,
+} from "../../../redux/actions/forecastAction";
+import { ForecastDataContext } from "../../../contexts/forecastscontext";
 import "./_smallcard.scss";
 
 const SmallCard = ({
-  label = "Title",
-  textContent = "textttt",
-  time = "2:38 p.m.",
-  svg,
-  temperature = "18°",
-  className,
+  data = {},
+  className = "",
   size = "s",
   direction = "o",
 }) => {
+  const { main, weather, dt, name } = data;
+
+  const dispatch = useDispatch();
+
+  const currentWeathersData = useSelector((state) => state.currentWeathersData);
+
+  const { currentWeathers } = currentWeathersData;
+
+  const [, setData] = useContext(ForecastDataContext);
+
+  const handleClick = () => {
+    let lat, lon;
+    switch (name) {
+      case "Turin":
+        lat = 45.070312;
+        lon = 7.6868565;
+        break;
+      case "London":
+        lat = 51.5073219;
+        lon = -0.1276474;
+        break;
+      case "Rome":
+        lat = 41.8947;
+        lon = 12.4839;
+        break;
+      default:
+        break;
+    }
+    dispatch(updateForecastNotSelected(data.id));
+    setData(findCity(currentWeathers, name));
+    dispatch(getFiveDaysUpdateForecastData(lat, lon));
+  };
+
   return (
     <>
-      {size === "s" ? (
-        direction === "o" ? (
-          <Card className={className}>
-            <Row className="p-2 small-card-media-less-xxl">
-              <Col>
-                <h5 className="small-card-title-h5">{label}</h5>
-                <p className="small-card-text">{textContent}</p>
-                <span className="small-card-hour">{time}</span>
-              </Col>
-              <Col>
-                <Card.Img src={svg} />
-              </Col>
-              <Col className="small-card-temperature">
-                <p>{temperature}</p>
-              </Col>
-            </Row>
-          </Card>
-        ) : (
-          <Card></Card>
-        )
-      ) : (
-        <Row className="p-2 xs-card-blue">
-          <Col className="xs-card-content">
-            <h5 className="small-card-title-h5 mt-2">{label}</h5>
-          </Col>
-          <Col className="xs-card-content content-temperature">
-            <p>{temperature}</p>
-          </Col>
-          <Col className="xs-card-content">
-            <Card.Img src={svg} className="xs" />
-          </Col>
-        </Row>
+      {size === "s" && direction === "o" && (
+        <Card className={className} onClick={handleClick} role="button">
+          <Row className="p-2 small-card-media-less-xxl">
+            <Col>
+              <h5 className="small-card-title-h5">{name}</h5>
+              <p className="small-card-text">{convertUnixTimestapToDate(dt)}</p>
+              <span className="small-card-hour">
+                {convertUnixTimestapToTime(dt, name === "London" ? "GB" : "")}
+              </span>
+            </Col>
+            <Col className="small-card-image">
+              <Card.Img src={`/svg/${weather[0].icon}.svg`} />
+            </Col>
+            <Col className="small-card-temperature">
+              <p>{kelvinToCelsius(main.temp)}°</p>
+            </Col>
+          </Row>
+        </Card>
       )}
     </>
   );
