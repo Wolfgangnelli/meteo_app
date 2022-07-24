@@ -1,0 +1,115 @@
+@import "../../../theme/variables";
+
+.small-card-blue {
+    border-radius: 20px !important;
+    background-image: linear-gradient(90deg, $dark-blue, $medium-blue) !important;
+    color: $white;
+    min-height: 140px;
+    //height: auto;
+    padding: 10px;
+}
+
+.small-card-gray {
+    border-radius: 20px !important;
+    background-image: linear-gradient(90deg, $dark-gray, $medium-gray) !important;
+    color: $white;
+    min-height: 140px;
+    //height: auto;
+    margin-top: 2rem;
+    padding: 10px;
+}
+
+@media screen and (max-width: 1440px) and (min-width: 992px) {
+    .small-card-gray {
+        margin-top: 0 !important;
+        margin-left: 0.5rem;
+    }
+    .small-card-media-less-xxl {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.small-card-title-h5 {
+    margin-bottom: 3px;
+    font-size: 1.7rem !important;
+    font-weight: 700;
+}
+
+.small-card-text {
+    font-size: 1.1rem;
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+.small-card-hour {
+    font-size: 0.9rem;
+    font-weight: 300;
+    opacity: 0.7;
+    color: lightgrey;
+}
+
+.small-card-temperature {
+    text-align: center;
+    margin: auto;
+    font-size: 3.5rem;
+    font-weight: bold;
+}
+
+.small-card-image {
+        display: flex;
+}
+
+
+
+.xs-card-blue {
+    border-radius: 20px !important;
+    background-color: $light-blue;
+    color: $white;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-width: 150px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+    @media screen and (max-width: 1400px) and (min-width: 992px) {
+        flex-direction: row !important;
+        width: 100%;
+        max-width: none;
+        height: 20%;
+        margin: 0.2rem 0;
+       }
+
+    @media screen and (max-width: 768px) {
+        flex-direction: row !important;
+        width: 100%;
+        max-width: none;
+        height: 20%;
+        margin: 0.2rem 0;
+       }
+}
+.card-img.xs {
+    width: 90%;
+    height: 90%;
+}
+.xs-card-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    p {
+        margin-bottom: 0 !important;
+    }
+
+    @media screen and (max-width: 1400px) and (min-width: 992px) {
+        max-height: -webkit-fill-available;
+       }
+
+    @media screen and (max-width: 768px) {
+    max-height: -webkit-fill-available;
+    }
+}
+.content-temperature {
+    font-size: 2rem;
+    font-weight: 700;
+}

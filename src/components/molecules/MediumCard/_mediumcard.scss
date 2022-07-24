@@ -1,0 +1,112 @@
+@import "../../../theme/variables";
+
+.medium-card {
+    background: linear-gradient(rgba($blue, 1), rgba($light-blue, 0.9)) !important;
+    height: 22.5rem; //320px;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.thermometer-label-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+p.thermometer-label {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+
+    @media screen and (max-width: 992px) {
+      margin-top: 4% !important;
+      padding: 4px 0;
+    }
+}
+
+.card-section {
+    height: 100%;
+    margin: 0 !important;
+    display: flex;
+
+    @media screen and (max-width: 992px) {
+      margin: 0 auto !important;
+      width: 80%;
+    }
+
+    .col-one {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+}
+
+.thermometer {
+    border-right: 8px;
+    border-left: 0px;
+    border-style: solid;
+    border-image: linear-gradient(to bottom, $white, rgba(0, 0, 0, 0)) 1 100%;
+    height: 100%;
+    position: relative;
+    margin: 0 auto;
+    margin-top: 8%;
+    
+    .dot {
+      height: 25px;
+      width: 25px;
+      background-color: $white;
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    .dot-1 {
+        top: -5%;
+        left: -8.5px;
+      }
+      .dot-2 {
+        top: 20%;
+        height: 20px;
+        width: 20px;
+        left: -6px;
+      }
+      .dot-3 {
+        top: 45%;
+        height: 20px;
+        width: 20px;
+        left: -6px;
+      }
+      .dot-4 {
+        top: 70%;
+        height: 20px;
+        width: 20px;
+        left: -6px;
+      }
+      .dot-5 {
+        top: 97%;
+        height: 20px;
+        width: 20px;
+        left: -6px;
+        opacity: 0.5;
+      }
+  }
+
+  .thermometer-container {
+    display: flex;
+    justify-content: center;
+
+    @media screen and (max-width: 992px) {
+      margin-top: 0 !important;
+    }
+  }
+
+  .thermometer-hours {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    @media screen and (max-width: 992px) {
+      margin-top: 0 !important;
+    }
+  }

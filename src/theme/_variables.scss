@@ -8,6 +8,7 @@ $theme: "quartz" !default;
 //
 
 $white:    #fff !default;
+$custom-white: #f1f1f1 !default;
 $gray-100: #f8f9fa !default;
 $gray-200: #e9e9e8 !default;
 $gray-300: #dee2e6 !default;
@@ -19,7 +20,7 @@ $gray-800: #343a40 !default;
 $gray-900: #212529 !default;
 $black:    #000 !default;
 
-$blue:    #3a8fd9 !default;
+//$blue:    #3a8fd9 !default;
 $indigo:  #6610f2 !default;
 $purple:  #686dc3 !default;
 $pink:    #e83283 !default;
@@ -41,6 +42,14 @@ $dark:          $gray-900 !default;
 
 $min-contrast-ratio:   1.5 !default;
 
+// custom meteo app
+$dark-blue: #0b2465 !default;
+$medium-blue: #4984c7 !default;
+$dark-gray: #50586f !default;
+$medium-gray: #8c9aab !default;
+$blue: #4f94e9 !default;
+$light-blue: #6ea9f1 !default;
+
 // Spacing
 
 $spacer: 2rem !default;
@@ -48,7 +57,7 @@ $spacer: 2rem !default;
 // Body
 
 $body-bg:                   $purple !default;
-$body-color:                $white !default;
+$body-color:                $black !default;
 
 // Links
 

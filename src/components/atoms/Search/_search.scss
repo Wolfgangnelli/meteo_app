@@ -1,0 +1,57 @@
+@import "../../../theme/variables";
+  
+.form-control-lg {
+    min-height: calc(1.5rem + (1rem + 2px));
+    padding: 2.5rem 3rem;
+    min-height: 140px;
+    font-size: 1.8rem;
+    border-radius: 0.95rem;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 10%), 0 6px 20px 0 rgb(0 0 0 / 10%);
+}
+
+.search-item {
+    min-height: 140px;
+}
+
+.btn-primary {
+    color: $white;
+    background-color: #0d6efd;
+}
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    user-select: none;
+    padding: 3rem 1.2rem;
+    font-size: 1rem;
+    border-radius: 18px 18px 18px 18px !important;
+}
+.form-label {
+    margin-bottom: 0 !important;
+    font-weight: 700;
+    color: $dark-blue;
+    font-size: 1.7rem;
+    padding-left: 20px;
+    height: 79.8px;
+    display: flex;
+    align-items: center;
+}
+input.form-control-lg::placeholder {
+    color: gray;
+    font-weight: 700;
+    opacity: 0.5;
+}
+
+.bg-btn-search {
+    background: linear-gradient(45deg, rgba($light-blue, 0.9), rgba($blue, 1)) !important;
+    min-height: 140px;
+}
+
+@media screen and (max-width: 1200px) {
+    .form-control-lg {
+        padding: 2.5rem 2rem;
+    }
+  }

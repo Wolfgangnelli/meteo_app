@@ -1,0 +1,29 @@
+@import "../../../theme/variables";
+
+.localization-card-azure {
+    border-radius: 20px !important;
+    background: linear-gradient(45deg, rgba($blue, 1), rgba($light-blue, 0.9)) !important;
+    color: $white;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 1rem;
+    min-height: 140px;
+}
+
+.localization-label {
+    font-size: 1.6rem;
+    margin-top: 1.2rem;
+}
+.localization-title {
+    margin-top: 1.5rem;
+    font-weight: 700;
+    color: $dark-blue;
+    font-size: 1.7rem;
+    padding-left: 20px;
+    padding-bottom: 1rem;
+}

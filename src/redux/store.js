@@ -10,6 +10,7 @@ const initialStore = {};
 const middleware = [thunk, promise, logger];
 
 const store = createStore(
+  storeReducers,
   initialStore,
   composeWithDevTools(applyMiddleware(...middleware))
 );
