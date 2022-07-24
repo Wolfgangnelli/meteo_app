@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { Card } from "react-bootstrap";
 import image from "../../../assets/images/building_background.png";
 import { MiniCardOverlay } from "../index";
