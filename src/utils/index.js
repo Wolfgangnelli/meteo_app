@@ -1,4 +1,4 @@
-import { MONTHS, DAYNAMES } from "./constants";
+import { MONTHS, DAYNAMES } from "../config/constants";
 
 export function convertUnixTimestapToDate(unixTimestamp = null) {
   if (unixTimestamp !== null) {
