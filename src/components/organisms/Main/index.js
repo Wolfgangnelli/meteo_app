@@ -7,7 +7,7 @@ import {
   MediumTabs,
   Localization,
 } from "../../molecules";
-import { SButton, Search } from "../../atoms";
+import { SButton, Search, Loader, Message } from "../../atoms";
 import {
   updateForecastNotSelected,
   getFiveDaysForecastData,
@@ -23,7 +23,7 @@ import {
   LONDON_LON,
   ROME_LAT,
   ROME_LON,
-} from "../../../utils/constants";
+} from "../../../config/constants";
 import "./_main.scss";
 
 const Main = ({ className }) => {
@@ -62,6 +62,19 @@ const Main = ({ className }) => {
 
   return (
     <main className={className}>
+      {loadingCurrentWeathers && <Loader />}
+      {errorCurrentWeather && (
+        <Message variant="danger">
+          <h3 className="text-danger">
+            Sorry, an Error occurs. <i className="fas fa-bug"></i>
+          </h3>
+          <p>({errorCurrentWeather})</p>
+          <p className="fw-bold fs-2 text-info">
+            Soon we will restore the service. Try later{" "}
+            <i className="fas fa-hand-scissors" style={{ color: "blue" }}></i>
+          </p>
+        </Message>
+      )}
       {currentWeathers && Object.keys(currentWeathers).length && (
         <>
           <section>

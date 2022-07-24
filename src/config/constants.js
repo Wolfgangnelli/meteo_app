@@ -24,7 +24,7 @@ export const DAYNAMES = [
 ];
 
 export const ROME_LAT = "41.8947";
-export const ROME_LON = "41.8947";
+export const ROME_LON = "12.4839";
 export const TURIN_LAT = "45.070312";
 export const TURIN_LON = "7.6868565";
 export const LONDON_LAT = "51.5073219";
