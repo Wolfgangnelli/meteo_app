@@ -69,6 +69,7 @@ export function getNextDay(list = [], today = "") {
     ) {
       return item;
     }
+    return;
   });
 
   let temperatures = days.map((el) => el.main.temp);

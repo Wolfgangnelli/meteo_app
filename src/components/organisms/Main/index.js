@@ -75,29 +75,30 @@ const Main = ({ className }) => {
           </p>
         </Message>
       )}
-      {currentWeathers && Object.keys(currentWeathers).length && (
-        <>
-          <section>
-            <Row className="main-section-1">
-              <Col lg={8} style={{ height: 100 + "%" }}>
-                <MainCardImg className="main-card-img" />
-              </Col>
-              <Col lg={4} className="main-section-1-col-2">
-                <Row className="d-flex align-self-center my-auto">
-                  <Col>
-                    <SButton
-                      label="Aggiungi città"
-                      variant="link"
-                      className="btn-variant-link"
-                      icon={iconPlus}
-                    />
-                  </Col>
-                </Row>
-                <Row className="q2">
-                  <Col className="main-section-1-col-2-row-2">
-                    {forecastsNotSelected &&
-                      forecastsNotSelected.length > 0 &&
-                      forecastsNotSelected.map((item, idx) => (
+      {currentWeathers &&
+        Object.keys(currentWeathers).length &&
+        forecastsNotSelected &&
+        !!forecastsNotSelected.length && (
+          <>
+            <section>
+              <Row className="main-section-1">
+                <Col lg={8} style={{ height: 100 + "%" }}>
+                  <MainCardImg className="main-card-img" />
+                </Col>
+                <Col lg={4} className="main-section-1-col-2">
+                  <Row className="d-flex align-self-center my-auto">
+                    <Col>
+                      <SButton
+                        label="Aggiungi città"
+                        variant="link"
+                        className="btn-variant-link"
+                        icon={iconPlus}
+                      />
+                    </Col>
+                  </Row>
+                  <Row className="q2">
+                    <Col className="main-section-1-col-2-row-2">
+                      {forecastsNotSelected.map((item, idx) => (
                         <SmallCard
                           data={item}
                           key={idx}
@@ -106,37 +107,37 @@ const Main = ({ className }) => {
                           }
                         />
                       ))}
-                  </Col>
-                </Row>
-              </Col>
-            </Row>
-          </section>
-          <section>
-            <Row className="main-section-2">
-              <Col lg={8}>
-                <Row className="main-section-2-row-1">
-                  <Col lg={4}>
-                    <div
-                      style={{ height: 79.8 + "px" }}
-                      className="thermometer-label-container"
-                    >
-                      <label className="thermometer-label">Today</label>
-                    </div>
-                    <MediumCard />
-                  </Col>
-                  <Col lg={8} className="medium-tabs-col">
-                    <MediumTabs />
-                  </Col>
-                </Row>
-              </Col>
-              <Col lg={4} className="q4">
-                <Search />
-                <Localization title="Localization" label="Add localization" />
-              </Col>
-            </Row>
-          </section>
-        </>
-      )}
+                    </Col>
+                  </Row>
+                </Col>
+              </Row>
+            </section>
+            <section>
+              <Row className="main-section-2">
+                <Col lg={8}>
+                  <Row className="main-section-2-row-1">
+                    <Col lg={4}>
+                      <div
+                        style={{ height: 79.8 + "px" }}
+                        className="thermometer-label-container"
+                      >
+                        <label className="thermometer-label">Today</label>
+                      </div>
+                      <MediumCard />
+                    </Col>
+                    <Col lg={8} className="medium-tabs-col">
+                      <MediumTabs />
+                    </Col>
+                  </Row>
+                </Col>
+                <Col lg={4} className="q4">
+                  <Search />
+                  <Localization title="Localization" label="Add localization" />
+                </Col>
+              </Row>
+            </section>
+          </>
+        )}
     </main>
   );
 };
