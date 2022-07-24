@@ -1,6 +1,6 @@
 import "./_app.scss";
 import { PageWrapper } from "../containers";
-import { Header, Main, Footer } from "../components/organisms";
+import { Header, Footer } from "../components/organisms";
 import { Homepage } from "../pages";
 
 function App() {
