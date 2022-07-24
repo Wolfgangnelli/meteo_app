@@ -32,26 +32,35 @@
 
 .small-card-title-h5 {
     margin-bottom: 3px;
-    font-size: 1.4rem !important;
+    font-size: 1.7rem !important;
+    font-weight: 700;
 }
 
 .small-card-text {
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     font-weight: 400;
-    line-height: 15px;
+    line-height: 1.2;
 }
 
 .small-card-hour {
-    font-size: 0.7rem;
-    font-weight: lighter;
+    font-size: 0.9rem;
+    font-weight: 300;
+    opacity: 0.7;
+    color: lightgrey;
 }
 
 .small-card-temperature {
     text-align: center;
     margin: auto;
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: bold;
 }
+
+.small-card-image {
+        display: flex;
+}
+
+
 
 .xs-card-blue {
     border-radius: 20px !important;

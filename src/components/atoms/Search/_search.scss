@@ -2,10 +2,11 @@
   
 .form-control-lg {
     min-height: calc(1.5rem + (1rem + 2px));
-    padding: 2.5rem 1rem;
+    padding: 2.5rem 3rem;
     min-height: 140px;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     border-radius: 0.95rem;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 10%), 0 6px 20px 0 rgb(0 0 0 / 10%);
 }
 
 .search-item {
@@ -24,9 +25,9 @@
     text-decoration: none;
     vertical-align: middle;
     user-select: none;
-    padding: 3rem 0.8rem;
+    padding: 3rem 1.2rem;
     font-size: 1rem;
-    border-radius: 25px 25px 25px 25px !important;
+    border-radius: 18px 18px 18px 18px !important;
 }
 .form-label {
     margin-bottom: 0 !important;
@@ -48,3 +49,9 @@ input.form-control-lg::placeholder {
     background: linear-gradient(45deg, rgba($light-blue, 0.9), rgba($blue, 1)) !important;
     min-height: 140px;
 }
+
+@media screen and (max-width: 1200px) {
+    .form-control-lg {
+        padding: 2.5rem 2rem;
+    }
+  }
